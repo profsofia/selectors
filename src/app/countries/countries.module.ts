@@ -4,16 +4,17 @@ import { CommonModule } from '@angular/common';
 
 
 import { CountriesRoutingModule } from './countries-routing.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { SelectorPageComponent } from './pages/selector.page/selector.page.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [SelectorPageComponent],
   imports: [
     CommonModule,
     CountriesRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+
   ]
 })
 export class CountriesModule { }

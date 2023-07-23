@@ -11,12 +11,44 @@
     <label class="form-label">
       Continente:
     </label>
-    <select class="form-control">
+    <select
+    formControlName="region"
+    class="form-control">
       <option value="">--- Seleccione Continente ---</option>
+      <option *ngFor="let region of regions" [value]="region">{{region}}</option>
     </select>
   </div>
 </div>
 
+  <!--Pais-->
+  <div class="row mb-3" *ngIf="countriesByRegion.length > 0">
+    <div class="col">
+      <label class="form-label">
+        Pais:
+      </label>
+      <select
+      formControlName="country"
+      class="form-control">
+        <option value="">--- Seleccione Pais ---</option>
+        <option *ngFor="let country of countriesByRegion" [value]="country.cca3">{{country.name}}</option>
+      </select>
+    </div>
+  </div>
+  <!--Bordes - fronteras-->
+  <div class="row mb-3" *ngIf="borders.length >0">
+    <div class="col">
+      <label class="form-label">
+        Fronteras:
+      </label>
+      <select
+      formControlName="borders"
+      class="form-control">
+        <option value="">--- Seleccione Frontera ---</option>
+        <!--<option *ngFor="let country of countriesByRegion" [value]="country.cca3">{{country.name}}</option>-->
+        <option *ngFor="let country of borders" [value]="country.cca3">{{country.name}}</option>
+      </select>
+    </div>
+  </div>
 </form>
 
 <h3>
@@ -25,3 +57,6 @@
 <code>
 {{myForm.value | json}}
 </code>
+<p>
+  es valido el formulario? : {{myForm.valid}}
+</p>
